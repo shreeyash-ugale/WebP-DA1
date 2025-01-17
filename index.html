@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer Camp Enrollment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        input[type="file"] {
+            padding: 3px;
+        }
+        .submit-btn {
+            width: 90%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .confirmation {
+            display: none;
+            text-align: center;
+            color: green;
+            font-weight: bold;
+        }
+        .flex-container {
+            display: flex;
+            gap: 10px;
+        }
+        .flex-container > div {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .flex-container > div:last-child {
+            margin-right: 0;
+        }
+        .flex-container input {
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+    <form id="summerCampForm">
+        <h2>Summer Camp Enrollment Form</h2>
+        <div class="form-section">
+            <h3>Child Information</h3>
+            <div class="flex-container">
+                <div>
+                    <label for="childFirstName">First Name:</label>
+                    <input type="text" id="childFirstName" name="childFirstName" required>
+                </div>
+                <div>
+                    <label for="childLastName">Last Name:</label>
+                    <input type="text" id="childLastName" name="childLastName" required>
+                </div>
+            </div>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <label for="medicalConditions">Medical Conditions/Allergies:</label>
+            <textarea id="medicalConditions" name="medicalConditions" placeholder="Enter details here..."></textarea>
+            <label for="activities">Preferred Activities:</label>
+            <select id="activities" name="activities[]" multiple required>
+                <option value="Sports">Sports</option>
+                <option value="Arts & Crafts">Arts & Crafts</option>
+                <option value="Music">Music</option>
+                <option value="Science">Science</option>
+                <option value="Drama">Drama</option>
+            </select>
+        </div>
+        <div class="form-section">
+            <h3>Parent/Guardian Information</h3>
+            <label for="guardianFirstName">First Name:</label>
+            <input type="text" id="guardianFirstName" name="guardianFirstName" required>
+            <label for="guardianLastName">Last Name:</label>
+            <input type="text" id="guardianLastName" name="guardianLastName" required>
+            <label for="relationship">Relationship to Child:</label>
+            <input type="text" id="relationship" name="relationship" required>
+            <label for="contactNumber">Contact Number:</label>
+            <input type="tel" id="contactNumber" name="contactNumber" pattern="[0-9]{10}" required>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="specialInstructions">Special Instructions/Notes:</label>
+            <textarea id="specialInstructions" name="specialInstructions" placeholder="Enter details here..."></textarea>
+        </div>
+        <div class="form-section">
+            <h3>Emergency Contact Details</h3>
+            <label for="emergencyName">Name:</label>
+            <input type="text" id="emergencyName" name="emergencyName" required>
+            <label for="emergencyRelationship">Relationship:</label>
+            <input type="text" id="emergencyRelationship" name="emergencyRelationship" required>
+            <label for="emergencyContact">Contact Number:</label>
+            <input type="tel" id="emergencyContact" name="emergencyContact" pattern="[0-9]{10}" required>
+            <label for="alternateContact">Alternate Contact Person:</label>
+            <input type="text" id="alternateContact" name="alternateContact" required>
+        </div>
+        <div class="form-section">
+            <h3>Medical Records</h3>
+            <label for="medicalRecords">Upload Medical Records:</label>
+            <input type="file" id="medicalRecords" name="medicalRecords" accept=".pdf, .jpg, .png" required>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+        <p class="confirmation" id="confirmationMessage">Thank you for enrolling! Your submission was successful.</p>
+    </form>
+    <script>
+        document.getElementById('summerCampForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('confirmationMessage').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
