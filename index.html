@@ -149,7 +149,9 @@
     <script>
         document.getElementById('summerCampForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            document.getElementById('confirmationMessage').style.display = 'block';
+            if (confirm('Are you sure you want to submit the form?')) {
+                document.getElementById('confirmationMessage').style.display = 'block';
+            }
         });
     </script>
     <footer>
